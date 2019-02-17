@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:Server"
         mc:Ignorable="d"
         Title="Server" Height="385.665" Width="526.886" FontSize="14">
-    <Grid>
-        
-    </Grid>
+    <DockPanel Margin="0,10,0,0"/>
+
 </Window>
