@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Server"
         mc:Ignorable="d"
-        Title="Server" Height="450" Width="800" FontSize="14">
+        Title="Server" Height="385.665" Width="526.886" FontSize="14">
     <Grid>
         
     </Grid>
