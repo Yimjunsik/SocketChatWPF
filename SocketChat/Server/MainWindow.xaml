@@ -12,6 +12,7 @@
                 <TextBlock Width="120" VerticalAlignment="Center" Margin="3"></TextBlock>
             </StatusBarItem>
         </StatusBar>
+        <DockPanel Height="317" Width="126" DockPanel.Dock="Right"/>
     </DockPanel>
 
 </Window>
