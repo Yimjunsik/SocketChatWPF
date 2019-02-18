@@ -56,6 +56,11 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Target Username : "/>
+                <TextBox Name="tbTargetUsername" Grid.Column="1" Grid.Row="0"/>
+                
+
             </Grid>
             <ListBox Name="lstChatHistory"/>
         </DockPanel>
