@@ -15,7 +15,12 @@
         <DockPanel Height="317" Width="126" DockPanel.Dock="Right">
             <TextBlock DockPanel.Dock="Top" Text="Active Clients" VerticalAlignment="Center"/>
         </DockPanel>
-        <Grid Name="gControl" DockPanel.Dock="Top"></Grid>
+        <Grid Name="gControl" DockPanel.Dock="Top">
+            
+        </Grid>
+        <DockPanel>
+            
+        </DockPanel>
     </DockPanel>
 
 </Window>
