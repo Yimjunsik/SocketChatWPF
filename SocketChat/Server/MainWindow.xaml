@@ -46,8 +46,16 @@
             <Button Name="bSwitchServerState" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2"/>
         </Grid>
         <DockPanel>
-            <Grid>
-                
+            <Grid DockPanel.Dock="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
             </Grid>
             <ListBox Name="lstChatHistory"/>
         </DockPanel>
