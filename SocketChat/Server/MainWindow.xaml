@@ -23,11 +23,13 @@
             <ListBox x:Name="lbActiveClients"></ListBox>
         </DockPanel>
         <Grid Name="gControl" DockPanel.Dock="Top">
-            
+
         </Grid>
         <DockPanel>
-            
+            <Grid>
+                
+            </Grid>
+            <ListBox Name="lstChatHistory"/>
         </DockPanel>
     </DockPanel>
-
 </Window>
