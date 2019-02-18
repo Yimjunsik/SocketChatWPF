@@ -13,8 +13,9 @@
             </StatusBarItem>
             <Separator/>
             <StatusBarItem>
-                <StackPanel>
-
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Active users : " Width="auto"/>
+                    <TextBlock Text="{}" Width="auto"/>
                 </StackPanel>
             </StatusBarItem>
         </StatusBar>
