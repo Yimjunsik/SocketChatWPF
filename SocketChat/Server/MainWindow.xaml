@@ -11,6 +11,12 @@
             <StatusBarItem>
                 <TextBlock Width="120" VerticalAlignment="Center" Margin="3"></TextBlock>
             </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <StackPanel>
+
+                </StackPanel>
+            </StatusBarItem>
         </StatusBar>
         <DockPanel Height="317" Width="126" DockPanel.Dock="Right">
             <TextBlock DockPanel.Dock="Top" Text="Active Clients" VerticalAlignment="Center"/>
