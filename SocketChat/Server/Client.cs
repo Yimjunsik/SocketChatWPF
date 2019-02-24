@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Net.Sockets;
+using System.Threading;
 
 namespace Server
 {
@@ -36,6 +38,8 @@ namespace Server
                 this.NotifyPropertyChanged("Username");
             }
         }
+        public Socket Socket { get; set; }
+        public Thread Thread { get; set; }
 
         #region INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
