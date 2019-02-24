@@ -149,6 +149,13 @@ namespace Server
 
             this.IsServerActive = false;
         }
+        public void SwitchServerState()
+        {
+            if (!this.IsServerActive) // server should be activated
+                this.StartServer();
+            else // server is currently active and should be stopped
+                this.StopServer();
+        }
 
         public void SendMessage(string toUsername, string messageContent)
             => this.SendMessage(this.lstClients[0], toUsername, messageContent);
