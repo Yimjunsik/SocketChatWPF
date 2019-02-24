@@ -41,6 +41,18 @@ namespace Server
         public Socket Socket { get; set; }
         public Thread Thread { get; set; }
 
+        public void SendMessage(string message)
+        {
+            try
+            {
+                this.Socket.Send(Encoding.Unicode.GetBytes(message));
+            }
+            catch (Exception)
+            {
+                //throw;
+            }
+        }
+
         #region INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propName) => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
