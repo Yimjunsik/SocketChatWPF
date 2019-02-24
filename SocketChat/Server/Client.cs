@@ -9,7 +9,7 @@ using System.Threading;
 
 namespace Server
 {
-    public class Client : INotifyPropertyChanged
+    public class Client : IDisposable, INotifyPropertyChanged
     {
         private int _id;
         private string _username;
@@ -63,6 +63,24 @@ namespace Server
                     return false;
 
             return true;
+        }
+
+        #region IDisposable implementation
+        private bool _isDisposed = false;
+        public void Dispose()
+        {
+            if (!_isDisposed)
+            {
+                if (this.Socket != null)
+                {
+                    this.Socket.Shutdown(SocketShutdown.Both);
+                    this.Socket.Dispose();
+                    this.Socket = null;
+                }
+                if (this.Thread != null)
+                    this.Thread = null;
+                _isDisposed = true;
+            }
         }
 
         #region INotifyPropertyChanged implementation
