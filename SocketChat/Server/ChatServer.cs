@@ -92,5 +92,6 @@ namespace Server
             }
         }
         public bool IsServerStopped => !this.IsServerActive;
+        public int ActiveClients => lstClients.Count;
     }
 }
