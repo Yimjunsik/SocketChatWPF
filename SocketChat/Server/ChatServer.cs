@@ -12,7 +12,7 @@ using System.Windows;
 
 namespace Server
 {
-    public class ChatServer
+    public class ChatServer : INotifyPropertyChanged
     {
         private Dispatcher _dispatcher { get; set; }
 
