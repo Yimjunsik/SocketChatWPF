@@ -93,5 +93,21 @@ namespace Server
         }
         public bool IsServerStopped => !this.IsServerActive;
         public int ActiveClients => lstClients.Count;
+
+        public ChatServer()
+        {
+            this._dispatcher = Dispatcher.CurrentDispatcher;
+            this.lstChat = new BindingList<string>();
+            this.lstClients = new BindingList<Client>();
+            this.lstClients.ListChanged += (_sender, _e) =>
+            {
+                this.NotifyPropertyChanged("ActiveClients");
+            };
+
+            this._clientIdCounter = 0;
+            this.IpAddress = "127.0.0.1";
+            this.Port = 5960;
+            this.Username = "Server";
+        }
     }
 }
