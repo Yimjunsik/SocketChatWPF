@@ -53,6 +53,18 @@ namespace Server
             }
         }
 
+        public static bool IsSocketConnected(Socket s)
+        {
+            if (!s.Connected)
+                return false;
+
+            if (s.Available == 0)
+                if (s.Poll(1000, SelectMode.SelectRead))
+                    return false;
+
+            return true;
+        }
+
         #region INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propName) => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
