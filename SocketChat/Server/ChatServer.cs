@@ -35,6 +35,22 @@ namespace Server
             }
         }
 
+        private IPEndPoint _ipEndPoint => new IPEndPoint(_ipAddress, _port);
+
+        public string IpAddress
+        {
+            get
+            {
+                return _ipAddress.ToString();
+            }
+            set
+            {
+                if (this.IsServerActive)
+                    throw new Exception("Can't hange this property when server is active ");
+                _ipAddress = IPAddress.Parse(value);
+            }
+        }
+
         #region INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propName) => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
