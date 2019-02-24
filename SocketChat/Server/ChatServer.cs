@@ -145,5 +145,58 @@ namespace Server
             }
         }
 
+        void ProcessMessages(Client c)
+        {
+            while (true)
+            {
+                try
+                {
+                    if (!c.IsSocketConnected())
+                    {
+                        this._dispatcher.Invoke(new Action(() =>
+                        {
+                            lstClients.Remove(c);
+                            c.Dispose();
+                        }), null);
+
+                        return;
+                    }
+
+                    byte[] inf = new byte[1024];
+                    int x = c.Socket.Receive(inf);
+                    if (x > 0)
+                    {
+                        string strMessage = Encoding.Unicode.GetString(inf);
+                        // check and execute commands
+                        if (strMessage.Substring(0, 8) == "/setname")
+                        {
+                            string newUsername = strMessage.Replace("/setname ", "").Trim('\0');
+
+                            c.Username = newUsername;
+                        }
+                        else if (strMessage.Substring(0, 6) == "/msgto")
+                        {
+                            string data = strMessage.Replace("/msgto ", "").Trim('\0');
+                            string targetUsername = data.Substring(0, data.IndexOf(':') + 1);
+                            string message = data.Substring(data.IndexOf(':') + 1);
+
+                            this._dispatcher.Invoke(new Action(() =>
+                            {
+                                SendMessage(c, targetUsername, message);
+                            }), null);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    this._dispatcher.Invoke(new Action(() =>
+                    {
+                        lstClients.Remove(c);
+                        c.Dispose();
+                    }), null);
+                    return;
+                }
+            }
+        }
     }
 }
