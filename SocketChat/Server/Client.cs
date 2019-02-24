@@ -24,6 +24,18 @@ namespace Server
                 this.NotifyPropertyChanged("ID");
             }
         }
+        public string Username
+        {
+            get
+            {
+                return _username;
+            }
+            set
+            {
+                this._username = value;
+                this.NotifyPropertyChanged("Username");
+            }
+        }
 
         #region INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
