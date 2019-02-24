@@ -63,7 +63,7 @@
                 <TextBlock Grid.Column="0" Grid.Row="1" Text="Message : "/>
                 <TextBox Name="tbMessage" Grid.Column="1" Grid.Row="1"/>
 
-                <Button Name="bSend" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"/>
+                <Button Name="bSend" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Click="bSend_Click"/>
             </Grid>
             <ListBox Name="lstChatHistory"/>
         </DockPanel>

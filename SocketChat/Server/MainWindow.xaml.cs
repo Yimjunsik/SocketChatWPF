@@ -20,14 +20,15 @@ namespace Server
     /// </summary>
     public partial class MainWindow : Window
     {
+        ChatServer cs;
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void BSend_Click(object sender, RoutedEventArgs e)
+        private void bSend_Click(object sender, RoutedEventArgs e)
         {
-
+            cs.s
         }
     }
 }
