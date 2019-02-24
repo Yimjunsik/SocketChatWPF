@@ -28,7 +28,7 @@ namespace Server
 
         private void bSend_Click(object sender, RoutedEventArgs e)
         {
-            cs.s
+            cs.SendMessage(tbTargetUsername.Text, tbMessage.Text);
         }
     }
 }
