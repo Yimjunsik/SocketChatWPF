@@ -8,6 +8,7 @@ using System.Threading;
 using System.Net.Sockets;
 using System.Net;
 using System.ComponentModel;
+using System.Windows;
 
 namespace Server
 {
@@ -142,6 +143,33 @@ namespace Server
             if (!isSent)
             {
                 from.SendMessage("**Server** : Error! Username not found, unable to deliver your message"); // send an error to sender
+            }
+        }
+
+        void WaitForConnections()
+        {
+            while (true)
+            {
+                if (_socket == null) return;
+                Client client = new Client();
+                client.ID = this._clientIdCounter;
+                client.Username = "NewUser";
+                try
+                {
+                    client.Socket = _socket.Accept();
+                    client.Thread = new Thread(() => ProcessMessages(client));
+
+                    this._dispatcher.Invoke(new Action(() =>
+                    {
+                        lstClients.Add(client);
+                    }), null);
+
+                    client.Thread.Start();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+                }
             }
         }
 
