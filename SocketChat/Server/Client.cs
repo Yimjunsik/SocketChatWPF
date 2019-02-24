@@ -82,6 +82,7 @@ namespace Server
                 _isDisposed = true;
             }
         }
+        #endregion
 
         #region INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
