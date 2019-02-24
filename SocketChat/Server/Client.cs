@@ -53,6 +53,11 @@ namespace Server
             }
         }
 
+        public bool IsSocketConnected()
+        {
+            return IsSocketConnected(Socket);
+        }
+
         public static bool IsSocketConnected(Socket s)
         {
             if (!s.Connected)
