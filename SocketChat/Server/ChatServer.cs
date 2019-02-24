@@ -126,6 +126,29 @@ namespace Server
 
             this.IsServerActive = true;
         }
+        public void StopServer()
+        {
+            if (!this.IsServerActive) return;
+
+            //MainThread.Abort(); MainThread = null;
+            //MainSocket.Shutdown(SocketShutdown.Both);
+
+            lstChat.Clear();
+
+            // remove all clients;
+            while (lstClients.Count != 0)
+            {
+                Client c = lstClients[0];
+
+                lstClients.Remove(c);
+                c.Dispose();
+            }
+
+            _socket.Dispose();
+            _socket = null;
+
+            this.IsServerActive = false;
+        }
 
         public void SendMessage(string toUsername, string messageContent)
             => this.SendMessage(this.lstClients[0], toUsername, messageContent);
