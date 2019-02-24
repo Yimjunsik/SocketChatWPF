@@ -51,6 +51,23 @@ namespace Server
             }
         }
 
+        private string _username;
+        public string Username
+        {
+            get
+            {
+                return _username;
+            }
+            set
+            {
+                this._username = value;
+                if (this.IsServerActive)
+                {
+                    this.lstClients[0].Username = value;
+                }
+            }
+        }
+
         public BindingList<Client> lstClients { get; set; }
         public BindingList<String> lstChat { get; set; }
 
