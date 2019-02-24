@@ -109,5 +109,41 @@ namespace Server
             this.Port = 5960;
             this.Username = "Server";
         }
+
+        public void SendMessage(string toUsername, string messageContent)
+            => this.SendMessage(this.lstClients[0], toUsername, messageContent);
+        private void SendMessage(Client from, string toUsername, string messageContent)
+        {
+            string logMessage = string.Format("**log** From {0} | To {1} | Message {2}", from.Username, toUsername, messageContent);
+            this.lstChat.Add(logMessage);
+
+            string message = from.Username + ": " + messageContent;
+
+            bool isSent = false;
+
+            // if target is server
+            if (toUsername == this.Username)
+            {
+                this.lstChat.Add(message);
+                isSent = true;
+            }
+
+            // if target username is registered
+            foreach (Client c in lstClients)
+            {
+                if (c.Username == toUsername)
+                {
+                    c.SendMessage(message);
+                    isSent = true;
+                }
+            }
+
+            // if target username isn't registered
+            if (!isSent)
+            {
+                from.SendMessage("**Server** : Error! Username not found, unable to deliver your message"); // send an error to sender
+            }
+        }
+
     }
 }
