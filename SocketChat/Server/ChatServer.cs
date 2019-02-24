@@ -111,6 +111,22 @@ namespace Server
             this.Username = "Server";
         }
 
+        public void StartServer()
+        {
+            if (this.IsServerActive) return;
+
+            _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            _socket.Bind(_ipEndPoint);
+            _socket.Listen(5);
+
+            _thread = new Thread(new ThreadStart(WaitForConnections));
+            _thread.Start();
+
+            lstClients.Add(new Client() { ID = 0, Username = this.Username });
+
+            this.IsServerActive = true;
+        }
+
         public void SendMessage(string toUsername, string messageContent)
             => this.SendMessage(this.lstClients[0], toUsername, messageContent);
         private void SendMessage(Client from, string toUsername, string messageContent)
