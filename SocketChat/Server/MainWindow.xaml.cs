@@ -24,5 +24,10 @@ namespace Server
         {
             InitializeComponent();
         }
+
+        private void BSend_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
