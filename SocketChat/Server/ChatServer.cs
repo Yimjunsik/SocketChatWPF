@@ -91,5 +91,6 @@ namespace Server
                 this.NotifyPropertyChanged("IsServerStopped");
             }
         }
+        public bool IsServerStopped => !this.IsServerActive;
     }
 }
