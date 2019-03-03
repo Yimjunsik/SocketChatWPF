@@ -90,7 +90,7 @@
 
                 <Button Name="bSend" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Content="Send" Click="bSend_Click"/>
             </Grid>
-            <ListBox Name="lstChatHistory"/>
+            <ListBox Name="lstChatHistory" ItemsSource="{Binding Path=lstChat}"/>
         </DockPanel>
     </DockPanel>
 </Window>
