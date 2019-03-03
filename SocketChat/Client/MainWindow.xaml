@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d" x:Name="wMain"
         Title="Client" Height="450" Width="800" FontSize="14">
-    <Grid>
+
+    <DockPanel Margin="0,10,0,0">
         
-    </Grid>
+    </DockPanel>
+
 </Window>
