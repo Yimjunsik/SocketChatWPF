@@ -24,6 +24,14 @@ namespace Server
         public MainWindow()
         {
             InitializeComponent();
+
+            lbActiveClients.SelectionChanged += (_s, _e) =>
+            {
+                if (lbActiveClients.SelectedValue == null)
+                    return;
+                if (lbActiveClients.SelectedValue is Client)
+                    tbTargetUsername.Text = (lbActiveClients.SelectedValue as Client).Username;
+            };
         }
 
         private void bSwitchServerState_Click(object sender, RoutedEventArgs e)
