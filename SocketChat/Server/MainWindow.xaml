@@ -10,6 +10,10 @@
     <Window.Resources>
         <local:BooleanToStartStopConverter x:Key="BooleanToStartStopConverter"/>
 
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Padding" Value="3"/>
+        </Style>
     </Window.Resources>
     <DockPanel Margin="0,10,0,0">
         <StatusBar Name="sbMain" Margin="0" DockPanel.Dock="Bottom">
