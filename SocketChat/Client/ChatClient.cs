@@ -7,10 +7,11 @@ using System.Windows.Threading;
 using System.Threading;
 using System.Net.Sockets;
 using System.Net;
+using System.ComponentModel;
 
 namespace Client
 {
-    public class ChatClient
+    public class ChatClient : INotifyPropertyChanged
     {
         private Dispatcher _dispatcher;
         private Thread _thread;
@@ -30,5 +31,12 @@ namespace Client
                 _ipAddress = IPAddress.Parse(value);
             }
         }
+
+
+
+        #region INotifyPropertyChanged implementation
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(string propName) => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        #endregion
     }
 }
