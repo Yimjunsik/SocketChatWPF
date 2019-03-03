@@ -33,9 +33,9 @@
         </Style>
     </Window.Resources>
     <DockPanel Margin="0,10,0,0">
-        <StatusBar Name="sbMain" Margin="0" DockPanel.Dock="Bottom">
+        <StatusBar Name="sbMain" DockPanel.Dock="Bottom">
             <StatusBarItem>
-                <TextBlock Text="{Binding Path=lsServerActive, Converter={StaticResource BooleanToServerStatusMessageConverter}}" Background="{Binding Path=IsServerActive, Converter={StaticResource BooleanToBrushConverter}}" />
+                <TextBlock Text="{Binding Path=IsServerActive, Converter={StaticResource BooleanToServerStatusMessageConverter}}" Background="{Binding Path=IsServerActive, Converter={StaticResource BooleanToBrushConverter}}" />
             </StatusBarItem>
             <Separator/>
             <StatusBarItem>
