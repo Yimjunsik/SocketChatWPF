@@ -9,7 +9,9 @@
 
     <DockPanel Margin="0,10,0,0">
         <StatusBar Name="sbMain" DockPanel.Dock="Bottom">
-            
+            <StatusBarItem>
+                <TextBlock Text="{Binding Path=IsClientConnected}"/>
+            </StatusBarItem>
         </StatusBar>
 
     </DockPanel>
