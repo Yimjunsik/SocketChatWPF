@@ -35,7 +35,7 @@
     <DockPanel Margin="0,10,0,0">
         <StatusBar Name="sbMain" Margin="0" DockPanel.Dock="Bottom">
             <StatusBarItem>
-                <TextBlock Width="120" VerticalAlignment="Center" Margin="3"></TextBlock>
+                <TextBlock Text="{Binding Path=lsServerActive, Converter={StaticResource BooleanToServerStatusMessageConverter}}" Background="{Binding Path=IsServerActive, Converter={StaticResource BooleanToBrushConverter}}" />
             </StatusBarItem>
             <Separator/>
             <StatusBarItem>
