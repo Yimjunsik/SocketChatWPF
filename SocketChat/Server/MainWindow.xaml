@@ -68,7 +68,7 @@
             <TextBlock Grid.Column="0" Grid.Row="1" Text="Username : "/>
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Username, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Button Name="bSwitchServerState" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Content="{Binding Path=IsServerActive, Converter={StaticResource BooleanToStartStopConverter}}"/>
+            <Button Name="bSwitchServerState" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Content="{Binding Path=IsServerActive, Converter={StaticResource BooleanToStartStopConverter}}" Click="bSwitchServerState_Click"/>
         </Grid>
         <DockPanel>
             <Grid DockPanel.Dock="Top">

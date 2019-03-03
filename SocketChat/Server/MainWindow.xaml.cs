@@ -26,9 +26,15 @@ namespace Server
             InitializeComponent();
         }
 
+        private void bSwitchServerState_Click(object sender, RoutedEventArgs e)
+        {
+            cs.SwitchServerState();
+        }
+
         private void bSend_Click(object sender, RoutedEventArgs e)
         {
             cs.SendMessage(tbTargetUsername.Text, tbMessage.Text);
         }
+
     }
 }
