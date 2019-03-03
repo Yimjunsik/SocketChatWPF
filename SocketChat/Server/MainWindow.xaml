@@ -10,6 +10,7 @@
     <Window.Resources>
         <local:BooleanToStartStopConverter x:Key="BooleanToStartStopConverter"/>
         <local:BooleanToServerStatusMessageConverter x:Key="BooleanToServerStatusMessageConverter" />
+        <local:BooleanToBrushConverter x:Key="BooleanToBrushConverter" />
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="3"/>
             <Setter Property="Padding" Value="3"/>
