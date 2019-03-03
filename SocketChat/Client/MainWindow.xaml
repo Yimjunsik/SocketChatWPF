@@ -13,7 +13,9 @@
                 <TextBlock Text="{Binding Path=IsClientConnected}"/>
             </StatusBarItem>
         </StatusBar>
-
+        <Grid Name="gControl" DockPanel.Dock="Top">
+            
+        </Grid>
     </DockPanel>
 
 </Window>
