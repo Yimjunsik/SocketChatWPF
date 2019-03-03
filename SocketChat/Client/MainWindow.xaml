@@ -16,6 +16,9 @@
         <Grid Name="gControl" DockPanel.Dock="Top">
             
         </Grid>
+        <DockPanel IsEnabled="{Binding Path=IsClientConnected}">
+            
+        </DockPanel>
     </DockPanel>
 
 </Window>
