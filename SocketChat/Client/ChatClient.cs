@@ -16,6 +16,19 @@ namespace Client
         private Thread _thread;
         private Socket _socket;
 
-
+        private IPAddress _ipAddress;
+        public string IpAddress
+        {
+            get
+            {
+                return _ipAddress.ToString();
+            }
+            set
+            {
+//                if (this.IsClientConnected)
+//                    throw new Exception("Can't change this property when server is active");
+                _ipAddress = IPAddress.Parse(value);
+            }
+        }
     }
 }
