@@ -26,13 +26,27 @@ namespace Client
             }
             set
             {
-//                if (this.IsClientConnected)
-//                    throw new Exception("Can't change this property when server is active");
+                if (this.IsClientConnected)
+                    throw new Exception("Can't change this property when server is active");
                 _ipAddress = IPAddress.Parse(value);
             }
         }
 
+        private bool _isClientConnected;
+        public bool IsClientConnected
+        {
+            get
+            {
+                return _isClientConnected;
+            }
+            private set
+            {
+                this._isClientConnected = value;
 
+                this.NotifyPropertyChanged("IsClientConnected");
+                this.NotifyPropertyChanged("IsClientDisconnected");
+            }
+        }
 
         #region INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
