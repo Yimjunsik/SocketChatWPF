@@ -47,7 +47,7 @@
         </StatusBar>
         <DockPanel Height="317" Width="126" DockPanel.Dock="Right">
             <TextBlock DockPanel.Dock="Top" Text="Active Clients" VerticalAlignment="Center"/>
-            <ListBox x:Name="lbActiveClients"></ListBox>
+            <ListBox x:Name="lbActiveClients" ItemsSource="{Binding Path=lstClients}" DisplayMemberPath="Username"/>
         </DockPanel>
         <Grid Name="gControl" DockPanel.Dock="Top">
             <Grid.ColumnDefinitions>
