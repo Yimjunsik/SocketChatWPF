@@ -128,6 +128,22 @@ namespace Client
             this.IsClientConnected = true;
         }
 
+        private void Disconnect()
+        {
+            if (!this.IsClientConnected) return;
+            if (this._socket != null && this._thread != null){
+                //this._thread.Abort(); MainThread = null;
+                this._socket.Shutdown(SocketShutdown.Both);
+                //this._socket.Disconnect(false);
+                this._socket.Dispose();
+                this._socket = null;
+                this._thread = null;
+            }
+            this.lstChat.Clear();
+
+            this.IsClientConnected = false;
+        }
+
         private void SetUsername(string newUsername)
         {
             string cmd = string.Format("/setname {0}", newUsername);
