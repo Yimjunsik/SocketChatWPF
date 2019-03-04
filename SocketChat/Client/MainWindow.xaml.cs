@@ -20,9 +20,13 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ChatClient cc;
+
         public MainWindow()
         {
             InitializeComponent();
+            cc = new ChatClient();
+            this.DataContext = cc;
         }
 
         private void bSend_Click(object sender, RoutedEventArgs e)
