@@ -65,6 +65,8 @@ namespace Client
             }
         }
 
+        public bool IsClientDisconnected => !this.IsClientConnected;
+
         #region INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propName) => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
