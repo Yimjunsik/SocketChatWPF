@@ -67,6 +67,23 @@ namespace Client
 
         public bool IsClientDisconnected => !this.IsClientConnected;
 
+        private string _username;
+        public string Username
+        {
+            get
+            {
+                return _username;
+            }
+            set
+            {
+                this._username = value;
+                if (this.IsClientConnected)
+                {
+//                    this.SetUsername(value);
+                }
+            }
+        }
+
         #region INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propName) => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
