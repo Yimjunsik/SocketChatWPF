@@ -47,6 +47,8 @@ namespace Client
             }
         }
 
+        private IPEndPoint _ipEndPoint => new IPEndPoint(_ipAddress, _port);
+
         private bool _isClientConnected;
         public bool IsClientConnected
         {
