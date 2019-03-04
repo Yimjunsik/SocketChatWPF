@@ -91,6 +91,16 @@ namespace Client
         private void NotifyPropertyChanged(string propName) => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         #endregion
 
+        public ChatClient()
+        {
+            this._dispatcher = Dispatcher.CurrentDispatcher;
+            this.lstChat = new BindingList<string>();
+
+            this.IpAddress = "127.0.0.1";
+            this.Port = 5960;
+            this.Username = "Client" + new Random().Next(0, 99).ToString();
+        }
+
         private void SetUsername(string newUsername)
         {
             string cmd = string.Format("/setname {0}", newUsername);
