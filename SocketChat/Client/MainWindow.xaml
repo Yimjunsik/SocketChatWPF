@@ -54,7 +54,9 @@
             <Button Name="bSwitchClientState" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Content="{Binding Path=IsClientConnected}"/>
         </Grid>
         <DockPanel IsEnabled="{Binding Path=IsClientConnected}">
-            
+            <Grid DockPanel.Dock="Top">
+                
+            </Grid>
         </DockPanel>
     </DockPanel>
 
