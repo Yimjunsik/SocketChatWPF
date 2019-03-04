@@ -29,9 +29,15 @@ namespace Client
             this.DataContext = cc;
         }
 
+        private void bSwitchClientState_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void bSend_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
     }
 }
