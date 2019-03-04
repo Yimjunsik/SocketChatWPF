@@ -101,6 +101,18 @@ namespace Client
             this.Username = "Client" + new Random().Next(0, 99).ToString();
         }
 
+        public static bool IsSocketConnected(Socket s)
+        {
+            if (!s.Connected)
+                return false;
+
+            if (s.Available == 0)
+                if (s.Poll(1000, SelectMode.SelectRead))
+                    return false;
+
+            return true;
+        }
+
         private void SetUsername(string newUsername)
         {
             string cmd = string.Format("/setname {0}", newUsername);
