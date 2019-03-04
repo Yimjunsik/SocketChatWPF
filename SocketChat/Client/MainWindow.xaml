@@ -64,6 +64,8 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Target Username : "/>
             </Grid>
             <ListBox ItemsSource="{Binding Path=lstChat}"/>
         </DockPanel>
