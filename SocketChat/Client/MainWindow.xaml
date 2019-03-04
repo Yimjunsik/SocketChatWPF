@@ -55,7 +55,15 @@
         </Grid>
         <DockPanel IsEnabled="{Binding Path=IsClientConnected}">
             <Grid DockPanel.Dock="Top">
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
             </Grid>
             <ListBox ItemsSource="{Binding Path=lstChat}"/>
         </DockPanel>
