@@ -26,6 +26,7 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Column="0" Grid.Row="0" Text="Socket Address :"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=IpAddress}"/>
         </Grid>
         <DockPanel IsEnabled="{Binding Path=IsClientConnected}">
             
