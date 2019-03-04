@@ -14,7 +14,16 @@
             </StatusBarItem>
         </StatusBar>
         <Grid Name="gControl" DockPanel.Dock="Top">
-            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
         </Grid>
         <DockPanel IsEnabled="{Binding Path=IsClientConnected}">
             
