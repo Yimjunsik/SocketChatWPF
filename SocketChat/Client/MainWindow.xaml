@@ -32,6 +32,8 @@
 
             <TextBlock Grid.Column="0" Grid.Row="1" Text="Username : "/>
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Username}"/>
+
+            <Button Name="bSwitchClientState" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Content="{Binding Path=IsClientConnected}"/>
         </Grid>
         <DockPanel IsEnabled="{Binding Path=IsClientConnected}">
             
