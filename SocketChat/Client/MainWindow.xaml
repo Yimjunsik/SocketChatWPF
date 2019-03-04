@@ -24,6 +24,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Socket Address :"/>
         </Grid>
         <DockPanel IsEnabled="{Binding Path=IsClientConnected}">
             
