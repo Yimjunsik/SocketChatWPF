@@ -67,6 +67,8 @@
 
                 <TextBlock Grid.Column="0" Grid.Row="0" Text="Target Username : "/>
                 <TextBox Name="tbTargetUsername" Text="Server" Grid.Column="1" Grid.Row="0"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Message : "/>
             </Grid>
             <ListBox ItemsSource="{Binding Path=lstChat}"/>
         </DockPanel>
