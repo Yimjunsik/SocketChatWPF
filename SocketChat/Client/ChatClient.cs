@@ -113,6 +113,21 @@ namespace Client
             return true;
         }
 
+        private void Connect()
+        {
+            if (this.IsClientConnected) return;
+
+            this._socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            this._socket.Connect(this._ipEndPoint);
+
+            SetUsername(this.Username);
+
+//            this._thread = new Thread(() => this.ReceiveMessages());
+            this._thread.Start();
+
+            this.IsClientConnected = true;
+        }
+
         private void SetUsername(string newUsername)
         {
             string cmd = string.Format("/setname {0}", newUsername);
