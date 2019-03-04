@@ -57,6 +57,7 @@
             <Grid DockPanel.Dock="Top">
                 
             </Grid>
+            <ListBox ItemsSource="{Binding Path=lstChat}"/>
         </DockPanel>
     </DockPanel>
 
