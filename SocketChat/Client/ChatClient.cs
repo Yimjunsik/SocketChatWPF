@@ -79,7 +79,7 @@ namespace Client
                 this._username = value;
                 if (this.IsClientConnected)
                 {
-//                    this.SetUsername(value);
+                    this.SetUsername(value);
                 }
             }
         }
@@ -88,5 +88,12 @@ namespace Client
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propName) => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         #endregion
+
+        private void SetUsername(string newUsername)
+        {
+            string cmd = string.Format("/setname {0}", newUsername);
+
+            this._socket.Send(Encoding.Unicode.GetBytes(cmd));
+        }
     }
 }
