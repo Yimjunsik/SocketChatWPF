@@ -32,6 +32,21 @@ namespace Client
             }
         }
 
+        private ushort _port;
+        public ushort Port
+        {
+            get
+            {
+                return _port;
+            }
+            set
+            {
+                if(this.IsClientConnected)
+                    throw new Exception("Can't change this property when server is active");
+                _port = value;
+            }
+        }
+
         private bool _isClientConnected;
         public bool IsClientConnected
         {
