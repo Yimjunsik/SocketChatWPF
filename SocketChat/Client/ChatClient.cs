@@ -113,6 +113,14 @@ namespace Client
             return true;
         }
 
+        public void SwitchClientState()
+        {
+            if (!this.IsClientConnected)
+                this.Connect();
+            else
+                this.Disconnect();
+        }
+
         private void Connect()
         {
             if (this.IsClientConnected) return;
