@@ -1,11 +1,11 @@
-﻿<Window x:Name="wMain" x:Class="Server.MainWindow"
+﻿<Window Name="wMain" x:Class="Server.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:Server"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Icon="LocalServer.ico"
         Title="Server" Height="385.665" Width="526.886" FontSize="14">
     <Window.Resources>
         <local:BooleanToStartStopConverter x:Key="BooleanToStartStopConverter"/>
@@ -32,7 +32,7 @@
             <Setter Property="Margin" Value="3"/>
         </Style>
     </Window.Resources>
-    <DockPanel Margin="0,10,0,0">
+    <DockPanel Margin="0 10 0 0">
         <StatusBar Name="sbMain" DockPanel.Dock="Bottom">
             <StatusBarItem>
                 <TextBlock Text="{Binding Path=IsServerActive, Converter={StaticResource BooleanToServerStatusMessageConverter}}" Background="{Binding Path=IsServerActive, Converter={StaticResource BooleanToBrushConverter}}" />
