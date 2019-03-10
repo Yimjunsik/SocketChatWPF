@@ -81,6 +81,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BooleanToBrushConverter.cs" />
     <Compile Include="BooleanToClientStatusMessageConverter.cs" />
     <Compile Include="BooleanToConnectDisconnectConverter.cs" />
     <Compile Include="ChatClient.cs" />
