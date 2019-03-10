@@ -251,7 +251,7 @@ namespace Server
                         else if (strMessage.Substring(0, 6) == "/msgto")
                         {
                             string data = strMessage.Replace("/msgto ", "").Trim('\0');
-                            string targetUsername = data.Substring(0, data.IndexOf(':') + 1);
+                            string targetUsername = data.Substring(0, data.IndexOf(':'));
                             string message = data.Substring(data.IndexOf(':') + 1);
 
                             this._dispatcher.Invoke(new Action(() =>
