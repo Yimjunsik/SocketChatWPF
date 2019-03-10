@@ -49,7 +49,7 @@
 
             <TextBlock Grid.Column="0" Grid.Row="0" Text="Socket Address :"/>
             <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=IpAddress}"/>
-            <xctk:IntegerUpDown Grid.Column="2" Grid.Row="0" Value="{Binding Path=Port}"/>
+            <xctk:IntegerUpDown Grid.Column="2" Grid.Row="0" Value="{Binding Path=Port, UpdateSourceTrigger=PropertyChanged}" Width="70" IsEnabled="{Binding Path=IsClientDisconnected}"/>
 
             <TextBlock Grid.Column="0" Grid.Row="1" Text="Username : "/>
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Username}"/>
