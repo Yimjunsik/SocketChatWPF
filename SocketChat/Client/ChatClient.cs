@@ -201,5 +201,12 @@ namespace Client
 
             this._socket.Send(Encoding.Unicode.GetBytes(cmd));
         }
+
+        public void SendMessageTo(string targetUsername, string message)
+        {
+            string cmd = string.Format("/msgto {0}:{1}", targetUsername, message);
+
+            this._socket.Send(Encoding.Unicode.GetBytes(cmd));
+        }
     }
 }
