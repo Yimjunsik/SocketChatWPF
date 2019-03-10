@@ -44,7 +44,9 @@ namespace Client
 
         private void bSend_Click(object sender, RoutedEventArgs e)
         {
-
+            // <TextBox Name="tbTargetUsername" Text="Server"
+            // <TextBox Name="tbMessage"
+            cc.SendMessageTo(tbTargetUsername.Text, tbMessage.Text);
         }
 
     }
