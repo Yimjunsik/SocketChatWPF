@@ -45,9 +45,9 @@
                 </StackPanel>
             </StatusBarItem>
         </StatusBar>
-        <DockPanel Height="317" Width="126" DockPanel.Dock="Right">
-            <TextBlock DockPanel.Dock="Top" Text="Active Clients" VerticalAlignment="Center"/>
-            <ListBox x:Name="lbActiveClients" ItemsSource="{Binding Path=lstClients}" DisplayMemberPath="Username"/>
+        <DockPanel IsEnabled="{Binding Path=IsServerActive}" DockPanel.Dock="Right">
+            <TextBlock DockPanel.Dock="Top" Text="Active Clients" TextAlignment="Center"/>
+            <ListBox Name="lbActiveClients" ItemsSource="{Binding Path=lstClients}" DisplayMemberPath="Username"/>
         </DockPanel>
         <Grid Name="gControl" DockPanel.Dock="Top">
             <Grid.ColumnDefinitions>
@@ -70,7 +70,7 @@
 
             <Button Name="bSwitchServerState" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Content="{Binding Path=IsServerActive, Converter={StaticResource BooleanToStartStopConverter}}" Click="bSwitchServerState_Click"/>
         </Grid>
-        <DockPanel>
+        <DockPanel IsEnabled="{Binding Path=IsServerActive}">
             <Grid DockPanel.Dock="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
