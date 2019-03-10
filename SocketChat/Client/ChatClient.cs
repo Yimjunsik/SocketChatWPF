@@ -130,7 +130,7 @@ namespace Client
 
             SetUsername(this.Username);
 
-//            this._thread = new Thread(() => this.ReceiveMessages());
+            this._thread = new Thread(() => this.ReceiveMessages());
             this._thread.Start();
 
             this.IsClientConnected = true;
@@ -150,6 +150,49 @@ namespace Client
             this.lstChat.Clear();
 
             this.IsClientConnected = false;
+        }
+
+        public void ReceiveMessages()
+        {
+            while (true)
+            {
+                byte[] inf = new byte[1024];
+
+                try
+                {
+                    // 연결되어 있지 않은 경우.
+                    if (!IsSocketConnected(this._socket))
+                    {
+                        this._dispatcher.Invoke(new Action(() =>
+                        {
+                            this.Disconnect();
+                        }));
+                        return;
+                    }
+
+                    int x = this._socket.Receive(inf);
+
+                    if ( x > 0)
+                    {
+                        string message = Encoding.Unicode.GetString(inf).Trim('\0');
+
+                        this._dispatcher.Invoke(new Action(() =>
+                        {
+                            this.lstChat.Add(message);
+                        }));
+
+                    }
+                }
+                catch (Exception)
+                {
+                    this._dispatcher.Invoke(new Action(() =>
+                    {
+                        this.Disconnect();
+                    }));
+
+                    return;
+                }
+            }
         }
 
         private void SetUsername(string newUsername)
