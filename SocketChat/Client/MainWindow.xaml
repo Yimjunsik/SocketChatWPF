@@ -9,6 +9,7 @@
         Title="Client" Height="385.665" Width="442.675" FontSize="14">
     <Window.Resources>
         <local:BooleanToConnectDisconnectConverter x:Key="BooleanToConnectDisconnectConverter" />
+        <local:BooleanToClientStatusMessageConverter x:Key="BooleanToClientStatusMessageConverter"/>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="3"/>
             <Setter Property="Padding" Value="3"/>
@@ -33,7 +34,7 @@
     <DockPanel Margin="0,10,0,0">
         <StatusBar Name="sbMain" DockPanel.Dock="Bottom">
             <StatusBarItem>
-                <TextBlock Text="{Binding Path=IsClientConnected}"/>
+                <TextBlock Text="{Binding Path=IsClientConnected, Converter={StaticResource BooleanToClientStatusMessageConverter}}" Width="auto" Padding="3" />
             </StatusBarItem>
         </StatusBar>
         <Grid Name="gControl" DockPanel.Dock="Top">
