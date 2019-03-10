@@ -4,10 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        xmlns:local="clr-namespace:Client"
-        mc:Ignorable="d" x:Name="wMain"
+        xmlns:local="clr-namespace:Server"
+        mc:Ignorable="d" Name="wMain"
         Title="Client" Height="385.665" Width="442.675" FontSize="14">
     <Window.Resources>
+        <local:BooleanToConnectDisconnectConverter x:Key="BooleanToConnectDisconnectConverter" />
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="3"/>
             <Setter Property="Padding" Value="3"/>
@@ -54,7 +55,7 @@
             <TextBlock Grid.Column="0" Grid.Row="1" Text="Username : "/>
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Username}"/>
 
-            <Button Name="bSwitchClientState" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Content="{Binding Path=IsClientConnected}" Click="bSwitchClientState_Click"/>
+            <Button Name="bSwitchClientState" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Content="{Binding Path=IsClientConnected, Converter={StaticResource BooleanToConnectDisconnectConverter}}" Click="bSwitchClientState_Click"/>
         </Grid>
         <DockPanel IsEnabled="{Binding Path=IsClientConnected}">
             <Grid DockPanel.Dock="Top">
